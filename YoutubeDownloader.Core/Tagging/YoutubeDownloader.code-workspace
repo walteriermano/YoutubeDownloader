@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "YoutubeExplode.Converter",
+			"path": "../../../YoutubeExplode/YoutubeExplode.Converter"
+		}
+	],
+	"settings": {}
+}

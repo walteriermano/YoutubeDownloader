@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using PowerKit.Extensions;
@@ -91,7 +92,17 @@ public class MediaTagInjector
         using var mediaFile = MediaFile.Open(filePath);
 
         InjectMiscMetadata(mediaFile, video);
-        await InjectMusicMetadataAsync(mediaFile, video, cancellationToken);
+
+        try
+        {
+            await InjectMusicMetadataAsync(mediaFile, video, cancellationToken);
+        }
+        catch (HttpRequestException)
+        {
+            // MusicBrainz may be unavailable or rate-limiting us,
+            // don't let that prevent the other tags from being written.
+        }
+
         await InjectThumbnailAsync(mediaFile, video, cancellationToken);
 
         mediaFile.Save();

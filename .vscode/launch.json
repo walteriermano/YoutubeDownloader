@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "YoutubeDownloader",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/YoutubeDownloader/bin/Debug/net10.0/YoutubeDownloader.dll",
+      "windows": {
+        "program": "${workspaceFolder}/YoutubeDownloader/bin/Debug/net10.0/YoutubeDownloader.exe"
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}/YoutubeDownloader/bin/Debug/net10.0",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    }
+  ]
+}

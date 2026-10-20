@@ -1,11 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Local checkout of YoutubeExplode with patches, used instead of the NuGet packages -->
+    <YoutubeExplodeSourceDir>$(MSBuildThisFileDirectory)../../YoutubeExplode/</YoutubeExplodeSourceDir>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="CSharpier.MsBuild" PrivateAssets="all" />
     <PackageReference Include="Gress" />
     <PackageReference Include="JsonExtensions" />
     <PackageReference Include="PowerKit" />
     <PackageReference Include="TagLibSharp" />
-    <PackageReference Include="YoutubeExplode" />
-    <PackageReference Include="YoutubeExplode.Converter" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(YoutubeExplodeSourceDir)YoutubeExplode/YoutubeExplode.csproj" />
+    <ProjectReference Include="$(YoutubeExplodeSourceDir)YoutubeExplode.Converter/YoutubeExplode.Converter.csproj" />
   </ItemGroup>
 </Project>
